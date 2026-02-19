@@ -2,7 +2,7 @@
 
 **Product Description 1: Bookstore Management System** *Modernizing the traditional rare book trade through digital transformation.*
 
----
+----
 
 ## 📖 Project Overview
 RISE is a centralized automated system designed to replace manual, paper-based workflows for rare bookstores. It integrates four core business pillars: **Accounting, Inventory Management, Manufacturer Ordering, and Customer Sales** into a single, high-performance platform.
