@@ -1,78 +1,19 @@
-# RISE: Rare Book Inventory & Sales Ecosystem 📚
+# RISE: Rare-book Inventory & Sales Ecosystem
 
-**Product Description 1: Bookstore Management System** *Modernizing the traditional rare book trade through digital transformation.*
+## Project Overview
+RISE is a digital transformation project designed to modernize rare bookstore operations. This platform integrates inventory management, a Point of Sale (POS) terminal, and procurement tracking into a secure, high-performance web application.
 
-----
+## Current Status: Sprint 0 (Envisioning & Planning)
+The project is currently in the **Planning Phase**. This week's focus is on infrastructure setup, UI design systems, and backlog refinement. Full implementation is scheduled for Sprints 1 and 2.
 
-## 📖 Project Overview
-RISE is a centralized automated system designed to replace manual, paper-based workflows for rare bookstores. It integrates four core business pillars: **Accounting, Inventory Management, Manufacturer Ordering, and Customer Sales** into a single, high-performance platform.
+## The Team
+* **Daniel Rhoads:** (UX/UI & Infrastructure)
+* **Midori (Alyssa Brown):** Logic Architect (Backend Development)
+* **Lyiondra Bradley:** QA Lead (Testing & Security)
+* **Pablo Gomez:** Scrum Master
+* **Gustavo Rosas:** Business Analyst
 
-### Key Goals:
-* **Digitize Cataloging:** Transition from paper ledgers to a real-time searchable database.
-* **Automate Sales:** Generate instant digital receipts and revenue reports.
-* **Streamline Procurement:** Connect owners to manufacturers with digital order requests.
-
----
-
-## 👥 Team Roles
-| Assignment Role | Team Title | Member |
-| :--- | :--- | :--- |
-| **Scrum Master** | Project Manager | Pablo Gomez |
-| **Backend Developer** | Lead Developer | Midori (Alyssa Brown) |
-| **Frontend Developer** | UI/UX Designer | Daniel Rhoads |
-| **Tester** | Quality Assurance | Lyiondra Bradley |
-| **Business Analyst** | Documentation Lead | Gustavo Rosas
-
----
-
-## 🛠 Tech Stack & Tools
-* **UI/UX:** HTML5, CSS3, Bootstrap 5, Figma
-* **Collaboration:** GitHub, Microsoft365
-* **Documentation:** Google Sheets (Sprint Planning)
-
----
-
-## 🚀 4-Week Development Roadmap
-
-### Week 1: Sprint 0 (Foundation)
-- [x] Product Backlog creation
-- [x] UI/UX Site Mapping
-- [x] GitHub Repository & Branching setup
-
-### Week 2: Sprint 1 (Core Shell)
-
-![Site Map](https://github.com/user-attachments/assets/995529f6-2f4e-429d-95c9-3652ae8c25d6)
-
-
-![Inventory Manager Wireframe](<img width="1199" height="1124" alt="_Inventory Manager Screen" src="https://github.com/user-attachments/assets/00aabab3-4e39-48bd-b912-27c14ddd47b3" />
-
-
-![Sales Terminal](<img width="1536" height="1024" alt="Sales_Terminal_POS" src="https://github.com/user-attachments/assets/7844d29c-af2e-45d8-9a3e-53569f50b6e4" />
-
-
-![Ordering System](<img width="1536" height="1024" alt="Manufacturer Ordering (Kanban) Layout" src="https://github.com/user-attachments/assets/2de36bad-3b0a-4fa1-99ae-d006a424bc45" />
-
-
-- [ ] **UI/UX:** Build Dashboard Layout & Inventory Modals.
-- [ ] **Backend:** Setup Database Schema & Book models.
-- [ ] **QA:** Define Te
-- [ ] st Cases for Inventory entry.
-
-### Week 3: Sprint 2 (Logic Integration)
-- [ ] **UI/UX:** Build Sales Terminal & Customer Order views.
-- [ ] **Backend:** Connect Frontend forms to Database API.
-- [ ] **QA:** Functional testing of "Add Book" and "Process Sale."
-
-### Week 4: Sprint 3 (Polish & Delivery)
-- [ ] **UI/UX:** Responsive design & CSS styling.
-- [ ] **Backend:** Final security audit & Password hashing.
-- [ ] **Final:** Deployment & Video Demonstration.
-
----
-
-## ✅ Definition of Done (DoD)
-A task is considered "Done" when:
-1. It meets the rubric requirements for the current week.
-2. The code is peer-reviewed and merged into the `main` branch.
-3. It has been validated by the QA lead without critical bugs.
-4. UI components are documented for end-user usability.
+## Tech Stack (Prototyping)
+* Frontend: HTML5, Bootstrap 5
+* Styling: Custom CSS (Midnight Blue & Emerald Green)
+* Logic: JavaScript (Local Storage for prototyping)
