@@ -1,0 +1,27 @@
+{
+  "name": "rise-system-v2",
+  "version": "1.0.0",
+  "description": "RISE is a digital transformation project...",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "vite",
+    "build": "vite build",
+    "serve-backend": "node server.js",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.14.0",
+    "cloudinary": "^2.9.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.3.3",
+    "multer": "^2.1.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "vite": "^8.0.8"
+  }
+}
