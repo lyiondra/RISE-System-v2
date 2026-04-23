@@ -2,7 +2,6 @@ name: Deploy RISE Portal
 on:
   push:
     branches: ["main"]
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -16,30 +15,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Debug Path
-        run: |
-          echo "Current Directory Content:"
-          ls -F
-          echo "Checking for package.json..."
-          find . -name "package.json"
-
       - name: Install Node
         uses: actions/setup-node@v4
         with:
           node-version: 24
 
-      - name: Install & Build
+      - name: Build
         run: |
-          # This logic finds the folder where package.json lives and goes there
-          TARGET_DIR=$(find . -name "package.json" -exec dirname {} \;)
-          cd "$TARGET_DIR"
-          echo "Moving to $TARGET_DIR"
           npm install
           npm run build
-          # Move the dist folder to the root so the next step can find it
-          mv dist ../ 2>/dev/null || true 
 
-      - name: Upload Artifact
+      - name: Upload
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: dist # This looks for 'dist' at the very top level
+          
+  deploy:
+    needs: build_site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        uses: actions/deploy-pages@v4
