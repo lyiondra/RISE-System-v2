@@ -35,14 +35,14 @@ async function run() {
             { title: "Fahrenheit 451", author: "Ray Bradbury", isbn: "9781451673319", price: 1300, timestamp: new Date() }
         ];
 
-        console.log("--- 📥 Populating Inventory... ---");
-        await books.deleteMany({}); // Clears old data for a clean demo
-        await books.insertMany(sampleBooks);
+       console.log("--- 🏺 Initializing Archive: Populating RISE Inventory... ---");
+await books.deleteMany({}); 
+await books.insertMany(sampleBooks);
 
-        console.log("\n--- 📊 LIVE CENSUS DATA (Top 5 Items) ---");
-        const recent = await books.find().limit(5).toArray();
-        console.table(recent, ["title", "author", "price"]);
-
+console.log("\n--- 📜 ARCHIVAL AUDIT: Latest Acquisitions ---");
+const recent = await books.find().limit(5).toArray();
+console.table(recent, ["title", "author", "price"]);
+console.log("--- ✅ RISE Ecosystem is Live & Synchronized ---");
     } catch (err) {
         console.error("❌ CONNECTION ERROR:", err.message);
     } finally {

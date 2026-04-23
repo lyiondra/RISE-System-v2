@@ -1,3 +1,12 @@
+import RISE_ARCHIVE from './data.js';
+
+let inventory = JSON.parse(localStorage.getItem('RISE_DATA')) || RISE_ARCHIVE;
+let cart = [];
+
+// This function saves any "New" books you add to the browser's memory
+function saveToEcosystem() {
+    localStorage.setItem('RISE_DATA', JSON.stringify(inventory));
+}
 // Inside your renderRow function...
 <button class="btn btn-sm btn-outline-dark add-to-cart-btn" data-id="${book._id}">ADD TO BAG</button>// app.js — RISE Inventory CRUD (API-based)
 // Inside the 'loginBtn' click listener...
@@ -104,7 +113,7 @@ function getStatusColor(status) {
 }
 
 // Start the Archive
-document.addEventListener('DOMContentLoaded', renderInventory);];
+document.addEventListener('DOMContentLoaded', renderInventory);;
 let currentFilter = "";
 
 // DOM

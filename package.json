@@ -2,13 +2,13 @@
   "name": "rise-system-v2",
   "version": "1.0.0",
   "description": "RISE is a digital transformation project...",
-  "main": "server.js",
-  "type": "commonjs",
+  "main": "lib/server.js", 
+   "type": "commonjs",
   "scripts": {
-    "start": "node server.js",
+    "start": "node lib/server.js",
     "dev": "vite",
-    "build": "vite build",
-    "serve-backend": "node server.js",
+    "build": "tsc && vite build", 
+    "serve-backend": "node lib/server.js",
     "preview": "vite preview",
     "export:readme-pdf": "node scripts/export-readme-pdf.js"
   },
