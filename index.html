@@ -177,14 +177,20 @@ body {
     </div>
 </div>
 
-<body><div class="sidebar">
-    <h1>RISE ARCHIVE</h1>
-    <ul class="list-unstyled">
-        <li class="mb-4 text-uppercase small tracking-widest" style="color: var(--gold)">Departments</li>
-        <li class="mb-3 opacity-75">📜 All Manuscripts</li>
-        <li class="mb-3 opacity-75">🖋️ Signed Editions</li>
-        <li class="mb-3 opacity-75">🏺 First Printings</li>
-    </ul>
+<body>
+    <body class="bg-zinc-950 text-white font-sans overflow-x-hidden">
+    <div id="login-screen" class="min-h-screen flex items-center justify-center transition-opacity duration-1000">
+        <div class="p-8 bg-zinc-900/50 backdrop-blur-lg border border-zinc-800 rounded-2xl shadow-2xl w-full max-w-md">
+            <h1 class="text-3xl font-light tracking-[0.2em] text-center mb-8">RISE <span class="text-emerald-500">PORTAL</span></h1>
+            <input type="password" id="access-code" placeholder="ENTER ACCESS KEY" class="w-full bg-black/40 border border-zinc-700 p-4 rounded mb-4 focus:border-emerald-500 outline-none transition-all">
+            <button onclick="checkAccess()" class="w-full py-4 bg-white text-black font-bold hover:bg-emerald-500 hover:text-white transition-all duration-300">INITIALIZE ARCHIVE</button>
+        </div>
+    </div>
+
+    <div id="main-dashboard" class="hidden opacity-0 transition-opacity duration-1000">
+        </div>
+</body>
+ </ul>
     <section class="admin-panel" style="background: #1B3022; color: #F5E6D3; padding: 20px; margin-bottom: 30px; border: 2px solid #C5A059;">
    // Inside the 'loginBtn' click listener...
 if (user === "admin" && pass === "rarebooks123") {
@@ -290,5 +296,6 @@ if (user === "admin" && pass === "rarebooks123") {
 </script>
 </body>
 
+<script type="module" src="/src/app.js"></script>
 
 </html>
