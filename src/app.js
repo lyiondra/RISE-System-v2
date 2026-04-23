@@ -3,21 +3,20 @@ import RISE_ARCHIVE from './data.js';
 let inventory = JSON.parse(localStorage.getItem('RISE_DATA')) || RISE_ARCHIVE;
 let cart = [];
 
-function checkAccess() {
-    const code = document.getElementById('access-code').value;
-    if (code === "RISE2026") { // Or whatever key you want
-        document.getElementById('login-screen').classList.add('opacity-0');
+export function checkAccess() {
+    const input = document.getElementById('access-code').value;
+    if (input === 'RISE2026') {
+        const login = document.getElementById('login-screen');
+        const dashboard = document.getElementById('main-dashboard');
+        
+        login.style.opacity = '0';
         setTimeout(() => {
-            document.getElementById('login-screen').classList.add('hidden');
-            document.getElementById('main-dashboard').classList.remove('hidden');
-            document.getElementById('main-dashboard').classList.add('opacity-100');
-            renderInventory(inventory); // Only load books once logged in
-        }, 1000);
-    } else {
-        alert("ACCESS DENIED: INVALID CREDENTIALS");
+            login.classList.add('hidden');
+            dashboard.classList.remove('hidden');
+            dashboard.style.opacity = '1';
+        }, 800);
     }
 }
-
 // This function saves any "New" books you add to the browser's memory
 function saveToEcosystem() {
     localStorage.setItem('RISE_DATA', JSON.stringify(inventory));
