@@ -125,7 +125,24 @@ function getStatusColor(status) {
 // Start the Archive
 document.addEventListener('DOMContentLoaded', renderInventory);;
 let currentFilter = "";
-
+const inventory = [
+  {
+    id: 1,
+    title: "SYSTEM ARCHIVE V1",
+    author: "RISE CORE",
+    status: "Available",
+    category: "Technical Manual",
+    imageUrl: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 2,
+    title: "NEURAL INTERFACE",
+    author: "SHIFT PROTOCOL",
+    status: "In Cart",
+    category: "Hardware Specs",
+    imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+  }
+];
 // DOM
 const tbody = document.getElementById("inventoryTbody");
 const addBookBtn = document.getElementById("addBookBtn");
@@ -158,6 +175,23 @@ async function loadInventory() {
         inventory = [];
         renderInventory();
     }
+    function renderInventory(books) {
+    const grid = document.getElementById('book-grid');
+    grid.innerHTML = books.map(book => `
+        <div class="book-card p-1">
+            <div class="book-image-container relative">
+                <img src="${book.imageUrl || 'https://via.placeholder.com/800x1000/0a0a0a/333333?text=RISE'}" 
+                     alt="${book.title}" 
+                     class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity duration-700">
+            </div>
+            <div class="p-6">
+                <p class="text-[10px] uppercase tracking-[0.3em] text-emerald-500 mb-2">${book.category}</p>
+                <h3 class="text-xl font-light italic">${book.title}</h3>
+                <p class="text-xs text-zinc-500 mt-1">${book.author}</p>
+            </div>
+        </div>
+    `).join('');
+}
 }
 
 // Update census stats
