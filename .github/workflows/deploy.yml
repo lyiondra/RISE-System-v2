@@ -16,24 +16,34 @@ permissions:
 jobs:
   build_site:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Opting into the new standard now
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          node-version: 24 # Updated to Node 24
+          node-version: 24
           cache: 'npm'
+
       - name: Install Dependencies
         run: npm install
+
       - name: Build Project
         run: npm run build
+
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
-      - name: Deploy
+
+  deploy:
+    needs: build_site
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
