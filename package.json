@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "RISE is a digital transformation project...",
   "main": "lib/server.js", 
-   "type": "commonjs",
+  "type": "module", 
   "scripts": {
     "start": "node lib/server.js",
     "dev": "vite",
-    "build": "tsc && vite build", 
+    "build": "vite build", 
     "serve-backend": "node lib/server.js",
     "preview": "vite preview",
     "export:readme-pdf": "node scripts/export-readme-pdf.js"
@@ -25,7 +25,6 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.1",
     "markdown-it": "^13.0.1",
-    "puppeteer": "^23.0.0",
     "vite": "^8.0.8"
   }
 }
