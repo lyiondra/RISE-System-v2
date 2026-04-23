@@ -4,7 +4,7 @@
 if (user === "admin" && pass === "rarebooks123") {
     document.getElementById('loginOverlay').style.display = 'none';
     document.getElementById('adminSection').style.display = 'block'; // Show the admin form
-}let inventory = [// 🏺 The Great Archive: 50 Rare Acquisitions
+}//let inventory = [// 🏺 The Great Archive: 50 Rare Acquisitions
 let inventory = [
   { id: 1, title: "The Great Gatsby", author: "F. Scott Fitzgerald", isbn: "978-0743273565", status: "Rare", price: 450.00 },
   { id: 2, title: "Ulysses (Signed)", author: "James Joyce", isbn: "978-0199535675", status: "Special", price: 12500.00 },
@@ -421,6 +421,35 @@ document.getElementById('loginBtn').addEventListener('click', () => {
         document.getElementById('loginOverlay').style.display = 'none'; // This hides the login screen
     } else {
         alert("Access Denied. Incorrect credentials.");
+    }
+});
+// Toggle between Login and Signup (Simple alert version)
+document.getElementById('showSignup').addEventListener('click', (e) => {
+    e.preventDefault();
+    const newName = prompt("Enter a new Username:");
+    const newPass = prompt("Enter a new Password:");
+
+    if (newName && newPass) {
+        // Save the new user to the browser's memory
+        localStorage.setItem('riseUser', newName);
+        localStorage.setItem('risePass', newPass);
+        alert("Account Created! You can now log in as " + newName);
+    }
+});
+
+// Update your Login Button to check BOTH the Admin and the New User
+document.getElementById('loginBtn').addEventListener('click', () => {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+
+    const savedUser = localStorage.getItem('riseUser');
+    const savedPass = localStorage.getItem('risePass');
+
+    if ((user === "admin" && pass === "rarebooks123") || (user === savedUser && pass === savedPass)) {
+        document.getElementById('loginOverlay').style.display = 'none';
+        alert("Welcome to the Archive, " + user);
+    } else {
+        alert("Invalid credentials. If you are new, click 'Create an Account'.");
     }
 });
 });
