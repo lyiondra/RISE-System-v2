@@ -16,6 +16,12 @@ permissions:
 jobs:
   build_site:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    defaults:
+      run:
+        # This tells GitHub to enter your specific folder
+        working-directory: ./RISE-System-v2 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,6 +31,8 @@ jobs:
         with:
           node-version: 24
           cache: 'npm'
+          # This tells GitHub where to find the lock file for caching
+          cache-dependency-path: './RISE-System-v2/package-lock.json'
 
       - name: Install Dependencies
         run: npm install
@@ -35,14 +43,14 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          # This tells GitHub where the final 'dist' folder is inside the subfolder
+          path: ./RISE-System-v2/dist 
 
   deploy:
     needs: build_site
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
