@@ -82,33 +82,29 @@ let inventory = [
 ];
 
 // 🖋️ Render Archive function
-function renderInventory() {
-  const tbody = document.getElementById('inventoryTbody');
-  if(!tbody) return;
-  tbody.innerHTML = '';
-
-  inventory.forEach(book => {
-    const row = `
-      <tr class="align-middle bg-white">
-        <td class="p-4">
-          <div class="d-flex align-items-center">
-            <div class="book-spine-accent"></div>
-            <div>
-              <span class="fw-bold d-block">${book.title}</span>
-              <small class="text-stone-500 italic">${book.author}</small>
+function renderInventory(books) {
+    const grid = document.getElementById('book-grid');
+    grid.innerHTML = books.map(book => `
+        <div class="book-card group relative overflow-hidden p-1">
+            <div class="book-image-container flex items-center justify-center overflow-hidden">
+                <div class="text-zinc-800 group-hover:text-emerald-500/20 transition-colors duration-700">
+                    <svg class="w-32 h-32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
             </div>
-          </div>
-        </td>
-        <td class="p-4 text-muted small">${book.isbn}</td>
-        <td class="p-4"><span class="status-badge" style="background: ${getStatusColor(book.status)}">${book.status}</span></td>
-        <td class="p-4 fw-bold">$${book.price.toLocaleString(undefined, {minimumFractionDigits: 2})}</td>
-        <td class="p-4 text-end">
-          <button class="btn btn-sm btn-outline-dark" style="border-radius: 0;">VIEW DETAILS</button>
-        </td>
-      </tr>
-    `;
-    tbody.innerHTML += row;
-  });
+            
+            <div class="p-6">
+                <p class="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-2">${book.category || 'Standard Edition'}</p>
+                <h3 class="text-xl font-medium tracking-tight mb-4">${book.title}</h3>
+                <div class="flex justify-between items-center border-t border-zinc-900 pt-4">
+                    <span class="text-sm font-mono text-zinc-400">${book.author}</span>
+                    <button class="text-xs uppercase tracking-widest text-emerald-500 hover:text-white transition-colors">Details</button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
 
   // 📈 Smart Census Updates
   document.getElementById('totalItems').innerText = inventory.length;

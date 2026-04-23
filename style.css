@@ -43,3 +43,19 @@ body {
     text-transform: uppercase;
     font-size: 0.85rem;
 }
+.book-card {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.book-card:hover {
+    border-color: #10b981; /* Emerald-500 */
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.book-image-container {
+    background: linear-gradient(180deg, #111 0%, #050505 100%);
+    aspect-ratio: 3/4;
+}
