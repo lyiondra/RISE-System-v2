@@ -1,0 +1,5 @@
+{
+  "title": "Qwen 2.5 Coder",
+  "model": "qwen2.5-coder",
+  "provider": "ollama"
+}

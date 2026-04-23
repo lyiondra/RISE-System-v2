@@ -1,11 +1,34 @@
-require('dotenv').config();
+require('dotenv').config(); // MUST BE LINE 1
+const dns = require('node:dns');
+dns.setServers(['8.8.8.8', '1.1.1.1']); 
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+// Serve static files from dist
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log("-----------------------------------------");
+    console.log("✨ RISE Database: Actual Handshake Confirmed!");
+    console.log("✅ The Rare Book Archive is now ONLINE.");
+    console.log("-----------------------------------------");
+  })
+  .catch(err => {
+    console.log("-----------------------------------------");
+    console.log("❌ CONNECTION BLOCKED");
+    console.log("Reason:", err.message);
+    console.log("Action: Check Atlas Network Access (0.0.0.0/0)");
+    console.log("-----------------------------------------");
+  });
 
 // Connect to MongoDB (Atlas string will go in .env)
 mongoose.connect(process.env.MONGODB_URI)
@@ -43,5 +66,32 @@ app.post('/api/books', async (req, res) => {
         res.status(400).json({ error: err.message });
     }
 });
+
+// 4. The "Put" Route (Update a book)
+app.put('/api/books/:id', async (req, res) => {
+    try {
+        const updatedBook = await Book.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!updatedBook) {
+            return res.status(404).json({ error: 'Book not found' });
+        }
+        res.json(updatedBook);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+});
+
+// 5. The "Delete" Route (Delete a book)
+app.delete('/api/books/:id', async (req, res) => {
+    try {
+        const deletedBook = await Book.findByIdAndDelete(req.params.id);
+        if (!deletedBook) {
+            return res.status(404).json({ error: 'Book not found' });
+        }
+        res.json({ message: 'Book deleted successfully' });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
