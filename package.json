@@ -2,12 +2,12 @@
   "name": "rise-system-v2",
   "version": "1.0.0",
   "description": "RISE is a digital transformation project...",
-  "main": "lib/server.js", 
-  "type": "module", 
+  "main": "lib/server.js",
+  "type": "module",
   "scripts": {
     "start": "node lib/server.js",
     "dev": "vite",
-    "build": "vite build", 
+    "build": "vite build",
     "serve-backend": "node lib/server.js",
     "preview": "vite preview",
     "export:readme-pdf": "node scripts/export-readme-pdf.js"
@@ -19,12 +19,12 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "mongodb": "^7.2.0",
-    "mongoose": "^9.4.1",
+    "mongoose": "^9.5.0",
     "multer": "^2.1.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.1",
-    "markdown-it": "^13.0.1",
+    "markdown-it": "^14.1.1",
     "vite": "^8.0.8"
   }
 }

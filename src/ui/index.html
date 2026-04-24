@@ -1,0 +1,46 @@
+<!-- src/ui/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Manager</title>
+    <style>
+        body {
+            background-color: #FFFDF5;
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            margin: 20px auto;
+            width: 300px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-container button {
+            background-color: #022B21;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add a Book</h2>
+        <form id="add-book-form">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+            <br><br>
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" required>
+            <br><br>
+            <button type="submit">Add Book</button>
+        </form>
+    </div>
+
+    <script src="../app.js"></script>
+</body>
+</html>
