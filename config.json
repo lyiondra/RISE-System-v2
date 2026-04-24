@@ -1,5 +1,24 @@
 {
-  "title": "Qwen 2.5 Coder",
-  "model": "qwen2.5-coder",
-  "provider": "ollama"
+  "models": [
+    {
+      "title": "Qwen 2.5 Coder (Fast)",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:latest",
+      "completionOptions": {
+        "temperature": 0.1,
+        "maxTokens": 1024
+      }
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Qwen 2.5 Coder (Fast)",
+    "provider": "ollama",
+    "model": "qwen2.5-coder:latest"
+  },
+  "ui": {
+    "codeBlockRenderMode": "streaming",
+    "fontSize": 14
+  },
+  "name": "read_currently_open_file",
+  "arguments": {}
 }

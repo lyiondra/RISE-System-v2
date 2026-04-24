@@ -3,11 +3,19 @@
   "version": "1.0.0",
   "description": "RISE is a digital transformation project...",
   "main": "lib/server.js",
+<<<<<<< HEAD
   "type": "module",
   "scripts": {
     "start": "node lib/server.js",
     "dev": "vite",
     "build": "vite build",
+=======
+  "type": "commonjs",
+  "scripts": {
+    "start": "node lib/server.js",
+    "dev": "vite",
+    "build": "tsc && vite build",
+>>>>>>> a4ca5ea (update src/server)
     "serve-backend": "node lib/server.js",
     "preview": "vite preview",
     "export:readme-pdf": "node scripts/export-readme-pdf.js"
