@@ -22,7 +22,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
   // Use local MongoDB connection string from development environment variables
   const uri = process.env.DEV_MONGODB_URI;
-}
+
 
 // Serve static files from the src/ui folder
 app.use(express.static(path.join(__dirname, 'ui')));
