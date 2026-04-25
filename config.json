@@ -1,4 +1,16 @@
 {
-  "name": "read_currently_open_file",
-  "arguments": {}
+  "models": [
+    {
+      "title": "Qwen 3 Coder (Architect)",
+      "provider": "ollama",
+      "model": "qwen3-coder:latest",
+      "roles": ["chat", "edit"] 
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Qwen 2.5 (Fast)",
+    "provider": "ollama",
+    "model": "qwen2.5-coder:latest",
+    "roles": ["autocomplete"]
+  }
 }
